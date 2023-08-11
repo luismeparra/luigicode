@@ -68,7 +68,7 @@ Several other models could have been used to solve this problem:
 - Neural Networks: If the dataset was significantly larger, shallow neural networks or deep learning models could potentially improve results.
 
 - Gradient Boosting Machines, like XGBoost or LightGBM, could be used to potentially achieve better results.
-- 
+  
 ## Future Work
 > Any plans for future enhancements or model improvements.
 
