@@ -14,7 +14,7 @@
 Which problem aboard?
 
 The project is about to try to predict the satisfaction level ((Satisfaction, neutral or dissatisfaction)) 
-for  a passenger that has had a flight in the airline using several features like:  
+for  a passenger that has had a flight in the airline using several features like: 
 
 Gender: Gender of the passengers (Female, Male)
 
