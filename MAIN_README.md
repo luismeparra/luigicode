@@ -112,13 +112,21 @@ This file has the next content:
 )
 4.Cookiecutter directory structure:
     -Creation of at least 6 Directories:
-        >Classifier 
-        >Models
-        >Preprocees
-        >load
-        >train
-        >data
-5.Use of POOO
+        >Classifier [Title](classifier)
+        >Models [Title](models)
+        >Preprocees [Title](preprocess)
+        >load [Title](load)
+        >train [Title](train)
+        >data [Title](data)
+And this files use Object-oriented programming
     -Modularization of code to be able to be instantiated from other scripts using classes.
     -Use of Custom Transformes.
     -Data pipeline that uses custom transformers.
+
+
+
+## Deliverable 8
+
+This file is a folder called api with the endpoints to train a model and predict a new value.
+
+The link is here: [Title](api)
