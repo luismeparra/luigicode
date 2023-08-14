@@ -30,7 +30,7 @@ class PassengerInfo(BaseModel):
     title_Mrs: int
     title_rare: int
 
-model_path = './models/logistic_regression_output.pkl'
+model_path = './models/random_forest_model.pkl'
 loaded_model = joblib.load(model_path)
 
 @app.post("/train-model")
