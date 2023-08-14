@@ -118,7 +118,7 @@ This file has the next content:
         >load
         >train
         >data
-5. Use of POOO
+5.Use of POOO
     -Modularization of code to be able to be instantiated from other scripts using classes.
     -Use of Custom Transformes.
     -Data pipeline that uses custom transformers.
