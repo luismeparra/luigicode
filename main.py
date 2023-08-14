@@ -65,6 +65,7 @@ if __name__ == "__main__":
     main()
 
 #######################  VF ###############################
+
 """Main module."""
 from load.load_data import DataRetriever
 from train.train_model import PassengerSatisfactionPipeline
@@ -76,7 +77,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Constants for data and model paths
 DATASETS_DIR = './data/'
-URL = 'https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/download?datasetVersionNumber=1'
+URL = 'https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/download'  # Correct Kaggle dataset URL
 RETRIEVED_DATA = 'retrieved_data.csv'
 SEED_MODEL = 404
 
