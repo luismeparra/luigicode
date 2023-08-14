@@ -18,59 +18,7 @@ def train_random_forest(X: DataFrame, y: Series) -> RandomForestClassifier:
     return model
 
 
-##########
-
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.linear_model import LogisticRegression
-
-class PassengerSatisfactionPipeline:
-    def __init__(self, seed_model, numerical_vars, categorical_vars_with_na, numerical_vars_with_na,
-                 categorical_vars, selected_features):
-        self.seed_model = seed_model
-        self.numerical_vars = numerical_vars
-        self.categorical_vars_with_na = categorical_vars_with_na
-        self.numerical_vars_with_na = numerical_vars_with_na
-        self.categorical_vars = categorical_vars
-        self.selected_features = selected_features
-
-    def _create_preprocessing_pipeline(self):
-        # Create transformers for numerical and categorical variables
-        numerical_transformer = Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='median')),
-            ('scaler', StandardScaler())
-        ])
-        categorical_transformer = Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='most_frequent')),
-            ('encoder', OneHotEncoder(handle_unknown='ignore'))
-        ])
-
-        # Combine transformers using ColumnTransformer
-        preprocessor = ColumnTransformer(
-            transformers=[
-                ('num', numerical_transformer, self.numerical_vars),
-                ('cat', categorical_transformer, self.categorical_vars)
-            ])
-
-        # Create the full preprocessing pipeline with the Logistic Regression model
-        preprocessing_pipeline = Pipeline(steps=[
-            ('preprocessor', preprocessor),
-            ('model', LogisticRegression(random_state=self.seed_model))
-        ])
-
-        return preprocessing_pipeline
-
-    def fit_logistic_regression(self, X_train, y_train):
-        # Create the preprocessing pipeline
-        preprocessing_pipeline = self._create_preprocessing_pipeline()
-
-        # Fit the pipeline on the training data
-        trained_pipeline = preprocessing_pipeline.fit(X_train, y_train)
-
-        return trained_pipeline
-
+######
 
 ### VF ###
 
