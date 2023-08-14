@@ -131,3 +131,21 @@ This file is a folder called api with the endpoints to train a model and predict
 
 The link is here: [Title](api)
 
+To Run the API 
+
+1.Open a terminal.
+2.Navigate to your project directory.
+3.Run the following command to start the FastAPI server:
+
+uvicorn api.app:app --reload
+
+Now, your FastAPI application is running, and you can access it at http://127.0.0.1:8000.
+
+
+Endpoints:
+
+You can use tools like curl, Postman, or a Python script to interact with the API endpoints. For example, to train a new model, you can send a POST request to http://127.0.0.1:8000/train.
+
+To make predictions, send a POST request to http://127.0.0.1:8000/predict with the input data in JSON format.
+
+Remember to update paths, functions, and data loading to match your project's structure and requirements.

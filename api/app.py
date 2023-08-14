@@ -1,59 +1,46 @@
+
 from fastapi import FastAPI, HTTPException
-from train.train_data import PassengerSatisfactionPipeline
-import joblib
+from train.train_model import train_random_forest
+from train.train_pipeline import train_pipeline  # Import your actual training function
+from preprocess.custom_transformers import CustomTransformer
 import pandas as pd
-from pydantic import BaseModel
+import joblib
 
 app = FastAPI()
 
-class PassengerInfo(BaseModel):
-    pclass: int
-    gender: int
-    age: float
-    sibsp: int
-    parch: int
-    fare: float
-    cabin: str
-    embarked: str
-    title: str
-    pclass_nan: int
-    age_nan: int
-    sibsp_nan: int
-    parch_nan: int
-    fare_nan: int
-    gender_male: int
-    cabin_Missing: int
-    cabin_rare: int
-    embarked_Q: int
-    embarked_S: int
-    title_Mr: int
-    title_Mrs: int
-    title_rare: int
-
-model_path = './models/random_forest_model.pkl'
+# Load the trained model
+model_path = "./models/random_forest_model.pkl"  # Update with your actual path
 loaded_model = joblib.load(model_path)
 
-@app.post("/train-model")
+# Define endpoint to train a new model
+@app.post("/train")
 def train_new_model():
-    # Call the training function from the PassengerSatisfactionPipeline class
-    # Return a message indicating success or failure
-    pass
+    # Load and preprocess data
+    data = pd.read_csv("./data/train.csv")  # Update with your actual path
+    X = data.drop("satisfactionN", axis=1)
+    y = data["satisfactionN"]
 
+    # Train the model using your training function
+    trained_model = train_pipeline(X, y)  # Update with your actual training function
 
+    # Save the trained model
+    model_filename = "./models/new_trained_model.pkl"
+    joblib.dump(trained_model, model_filename)
+
+    return {"message": "New model trained and saved."}
+
+# Define endpoint to make predictions
 @app.post("/predict")
-def predict_passenger_satisfaction(passenger: PassengerInfo):
-    # Convert the input data into a DataFrame
-    input_data = pd.DataFrame([passenger.dict()])
-    
-    # Apply any preprocessing required for prediction
-    # For example, apply OneHotEncoder to categorical variables
-    
-    # Make predictions using the loaded model
-    prediction = loaded_model.predict(input_data)
-    
-    # Return the prediction result
-    return {"prediction": prediction[0]}
+def predict_new_value(data: dict):
+    try:
+        # Convert input data to DataFrame and preprocess
+        input_df = pd.DataFrame(data, index=[0])
+        preprocessor = CustomTransformer(columns_to_encode=['Gender', 'Customer Type', 'Type of Travel', 'Class'])
+        input_df = preprocessor.transform(input_df)
 
+        # Make prediction using the loaded model
+        prediction = loaded_model.predict(input_df)
 
-#uvicorn api.main:app --host 0.0.0.0 --port 8000
-
+        return {"prediction": prediction.tolist()}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
