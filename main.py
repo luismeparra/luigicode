@@ -37,8 +37,8 @@ def main():
     
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
-        df.drop('satisfactionN', axis=1),
-        df['satisfactionN'],
+        df.drop('satisfaction', axis=1),
+        df['satisfaction'],
         test_size=0.2,
         random_state=404
     )
