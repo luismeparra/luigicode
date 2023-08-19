@@ -9,7 +9,7 @@ import joblib
 app = FastAPI()
 
 # Load the trained model
-model_path = "./models/random_forest_model.pkl"  # Update with your actual path
+model_path = "./models/random_forest_model_output.pkl"  # Update with your actual path
 loaded_model = joblib.load(model_path)
 
 # Define endpoint to train a new model
