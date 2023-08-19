@@ -1,7 +1,5 @@
-
 from fastapi import FastAPI, HTTPException
-#from train.train_model import train_random_forest
-from train.train_pipeline import train_pipeline  # Import your actual training function
+from train.train_pipeline import train_pipeline
 from preprocess.custom_transformers import CustomTransformer
 import pandas as pd
 import joblib
@@ -9,19 +7,19 @@ import joblib
 app = FastAPI()
 
 # Load the trained model
-model_path = "./models/random_forest_model_output.pkl"  # Update with your actual path
+model_path = "./models/random_forest_model_output.pkl"
 loaded_model = joblib.load(model_path)
 
 # Define endpoint to train a new model
 @app.post("/train")
 def train_new_model():
     # Load and preprocess data
-    data = pd.read_csv("./data/train.csv")  # Update with your actual path
+    data = pd.read_csv("./data/train.csv")
     X = data.drop("satisfaction", axis=1)
     y = data["satisfaction"]
 
     # Train the model using your training function
-    trained_model = train_pipeline(X, y)  # Update with your actual training function
+    trained_model = train_pipeline(X, y)
 
     # Save the trained model
     model_filename = "./models/new_trained_model.pkl"
