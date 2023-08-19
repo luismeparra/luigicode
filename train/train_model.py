@@ -1,8 +1,3 @@
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from typing import Tuple
-from train.train_pipeline import PassengerSatisfactionPipeline
-
 #def train_random_forest(X: DataFrame, y: Series) -> RandomForestClassifier:
 #    """Train a RandomForestClassifier.
 #    
