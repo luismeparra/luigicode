@@ -30,7 +30,7 @@ def train_new_model():
     return {"message": "New model trained and saved."}
 
 # Define endpoint to make predictions
-@app.post("/predict")
+@app.post("api/predict")
 def predict_new_value(data: dict):
     try:
         # Convert input data to DataFrame and preprocess
