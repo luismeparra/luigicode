@@ -1,6 +1,6 @@
 
 from fastapi import FastAPI, HTTPException
-from train.train_model import train_random_forest
+#from train.train_model import train_random_forest
 from train.train_pipeline import train_pipeline  # Import your actual training function
 from preprocess.custom_transformers import CustomTransformer
 import pandas as pd
