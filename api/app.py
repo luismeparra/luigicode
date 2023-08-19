@@ -17,8 +17,8 @@ loaded_model = joblib.load(model_path)
 def train_new_model():
     # Load and preprocess data
     data = pd.read_csv("./data/train.csv")  # Update with your actual path
-    X = data.drop("satisfactionN", axis=1)
-    y = data["satisfactionN"]
+    X = data.drop("satisfaction", axis=1)
+    y = data["satisfaction"]
 
     # Train the model using your training function
     trained_model = train_pipeline(X, y)  # Update with your actual training function
@@ -30,7 +30,7 @@ def train_new_model():
     return {"message": "New model trained and saved."}
 
 # Define endpoint to make predictions
-@app.post("api/predict")
+@app.post("/api/predict")
 def predict_new_value(data: dict):
     try:
         # Convert input data to DataFrame and preprocess
