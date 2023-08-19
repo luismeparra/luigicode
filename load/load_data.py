@@ -5,6 +5,7 @@ import pandas as pd
 
 #def load_data(filepath: str) -> DataFrame:
    # """Load data from a CSV file.
+<<<<<<< HEAD
    # 
   #  Args:
   #      filepath (str): Path to the CSV file.
@@ -14,6 +15,17 @@ import pandas as pd
  #   """
  #   data = pd.read_csv(filepath)
  #   return data
+=======
+    
+ #   Args:
+  #      filepath (str): Path to the CSV file.
+    
+   # Returns:
+    #    DataFrame: Loaded data.
+    #"""
+    #data = pd.read_csv(filepath)
+    #return data
+>>>>>>> 85453a40941fdee59017335e3db8b2d3800b8650
 
 
 

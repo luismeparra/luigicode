@@ -1,0 +1,65 @@
+# Compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Environment variables
+.env
+
+# Compiled Python modules
+*.pyc
+*.pyo
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+__pycache__/
+*.egg
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+
+# Jupyter Notebook temporary files
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+env/
+env.bak/
+
+# Logs
+logs/
+log.txt
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Data files
+data/
+
+# Model files
+models/
+
+# Ignore API-related files
+api/__pycache__/
+api/__init__.py
+
+# Ignore cache or configuration files
+*.cache
+*.log
+*.swp
+*.swo
