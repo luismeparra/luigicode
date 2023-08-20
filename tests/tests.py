@@ -7,7 +7,7 @@ import pandas as pd
 
 from sklearn.pipeline import Pipeline
 
-from .load.load_data import DataRetriever
+from load.load_data import DataRetriever
 from .preprocess.preprocess_data import MissingIndicator
 
 def does_csv_file_exist(file_path):
