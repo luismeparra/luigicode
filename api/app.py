@@ -11,7 +11,7 @@ model_path = "./models/random_forest_model_output.pkl"
 loaded_model = joblib.load(model_path)
 
 # Define endpoint to train a new model
-@app.post("/train")
+@app.post("./train")
 def train_new_model():
     # Load and preprocess data
     data = pd.read_csv("./data/train.csv")
@@ -28,7 +28,7 @@ def train_new_model():
     return {"message": "New model trained and saved."}
 
 # Define endpoint to make predictions
-@app.post("/api/predict")
+@app.post("./api/predict")
 def predict_new_value(data: dict):
     try:
         # Convert input data to DataFrame and preprocess
