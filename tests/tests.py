@@ -45,7 +45,8 @@ def test_csv_file_existence():
     
     DATASETS_DIR = './data/'
     
-    URL = 'https://www.openml.org/data/get_csv/16826755/phpMYEkMl'
+    #URL = 'https://www.openml.org/data/get_csv/16826755/phpMYEkMl'
+    URL = 'https://github.com/luismeparra/luigicode/raw/main/data/train.csv'
     data_retriever = DataRetriever(URL, DATASETS_DIR)
     data_retriever.retrieve_data()
 
