@@ -5,7 +5,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-
+import logging
 
 #import os
 #import sys
@@ -17,6 +17,13 @@ from predict.predict import ModelPredictor
 import joblib
 
 app = FastAPI()
+
+# Configure logging
+log_format = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
+logging.basicConfig(level=logging.INFO, format=log_format)
+
+
+
 
 # Add the parent directory to sys.path
 
@@ -50,7 +57,9 @@ def predict(passenger_features: dict) -> JSONResponse:
 
         # Make prediction using the loaded model
         prediction = predictor.predict(input_df)
-
+        # Log prediction result
+        logging.info(f"Prediction: {prediction}")
+        
         return JSONResponse({"prediction": prediction.tolist()})
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
