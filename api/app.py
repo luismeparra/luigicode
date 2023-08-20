@@ -18,7 +18,7 @@ sys.path.append(parent_dir)
 model_path = "./models/random_forest_model_output.pkl"
 loaded_model = joblib.load(model_path)
 
-#predictor = ModelPredictor(model_path)
+predictor = ModelPredictor(model_path)
 #predictor = joblib.load(model_path)
 
 @app.get('/', status_code=200)
