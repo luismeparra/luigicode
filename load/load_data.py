@@ -1,37 +1,4 @@
 import pandas as pd
-#from typing import DataFrame
-
-#This function allows to load data set that will use
-
-#def load_data(filepath: str) -> DataFrame:
-   # """Load data from a CSV file.
-<<<<<<< HEAD
-   # 
-  #  Args:
-  #      filepath (str): Path to the CSV file.
-  #  
-  #  Returns:
- #       DataFrame: Loaded data.
- #   """
- #   data = pd.read_csv(filepath)
- #   return data
-=======
-    
- #   Args:
-  #      filepath (str): Path to the CSV file.
-    
-   # Returns:
-    #    DataFrame: Loaded data.
-    #"""
-    #data = pd.read_csv(filepath)
-    #return data
->>>>>>> 85453a40941fdee59017335e3db8b2d3800b8650
-
-
-
-#################
-
-import pandas as pd
 import os
 import requests
 
@@ -54,3 +21,5 @@ class DataRetriever:
             return "Data retrieval successful."
         else:
             return "Data retrieval failed."
+
+            
