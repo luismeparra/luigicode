@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from train import train_pipeline
+from train.train_pipeline import train_pipeline
 from preprocess.custom_transformers import CustomTransformer
 import pandas as pd
 import joblib
