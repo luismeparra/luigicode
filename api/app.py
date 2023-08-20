@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
-from predictor.predict import ModelPredictor
+#from predictor.predict import ModelPredictor
 from .models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
 
 app = FastAPI()
@@ -15,7 +15,9 @@ sys.path.append(parent_dir)
 
 # Load the trained model
 model_path = "./models/random_forest_model_output.pkl"  # Update with your model's path
-predictor = ModelPredictor(model_path)
+
+#predictor = ModelPredictor(model_path)
+predictor = joblib.load(model_path)
 
 @app.get('/', status_code=200)
 async def healthcheck():
