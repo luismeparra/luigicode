@@ -25,6 +25,9 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier  # Import RandomForestClassifier
 import joblib
 
+
+
+
 class PassengerSatisfactionPipeline:
     def __init__(self, seed_model, numerical_vars, categorical_vars_with_na, numerical_vars_with_na,
                  categorical_vars, selected_features):
