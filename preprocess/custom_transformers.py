@@ -1,25 +1,4 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-from typing import Any
-
-class CustomTransformer(BaseEstimator, TransformerMixin):
-    """Custom transformer for data preprocessing."""
-    
-    def __init__(self, parameter: Any):
-        self.parameter = parameter
-
-    def fit(self, X, y=None):
-        return self
-
-    def transform(self, X):
-        # Implement your transformation logic here
-        transformed_data = ...  # Transformation steps
-        return transformed_data
-
-
-########
-
-
-from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 

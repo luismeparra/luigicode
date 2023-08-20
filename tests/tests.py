@@ -4,7 +4,7 @@
 import os
 import pytest
 import pandas as pd
-from preprocess.custom_transformers import CustomTransformer  # Import your custom transformer
+from luigicode.preprocess.custom_transformers import CustomTransformer  # Import your custom transformer
 
 def test_custom_transformer():
     """
