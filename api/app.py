@@ -4,7 +4,7 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
 #from predict.predict import ModelPredictor
-from api.models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
+from models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
 import joblib
 
 app = FastAPI()
@@ -25,7 +25,7 @@ async def healthcheck():
     return 'Passenger satisfaction predictor is ready to go!'
 #1
 @app.post('/predict')
-def predict(passenger_features: PassengerSatisfaction) -> JSONResponse:
+def predict(passenger_features: dict) -> JSONResponse:
     try:
         # Convert input data to DataFrame and preprocess
         input_data = {
