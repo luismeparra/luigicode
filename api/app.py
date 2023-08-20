@@ -15,10 +15,11 @@ parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "./models/random_forest_model_output.pkl"  # Update with your model's path
+model_path = "./models/random_forest_model_output.pkl"
+loaded_model = joblib.load(model_path)
 
 #predictor = ModelPredictor(model_path)
-predictor = joblib.load(model_path)
+#predictor = joblib.load(model_path)
 
 @app.get('/', status_code=200)
 async def healthcheck():
