@@ -1,5 +1,13 @@
 # models/models.py
 ###
+import logging
+
+# Configure logging for models module
+log_format = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
+logging.basicConfig(filename='models.log', level=logging.DEBUG, format=log_format)
+
+# 
+
 from pydantic import BaseModel
 
 #######

@@ -22,7 +22,8 @@ app = FastAPI()
 log_format = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
 logging.basicConfig(level=logging.INFO, format=log_format)
 
-
+## The  logging choosen is INFO and it can
+# replace for logging.WARNING, logging.ERROR, or logging.CRITICAL to adjust the logging level
 
 
 # Add the parent directory to sys.path
@@ -59,7 +60,7 @@ def predict(passenger_features: dict) -> JSONResponse:
         prediction = predictor.predict(input_df)
         # Log prediction result
         logging.info(f"Prediction: {prediction}")
-        
+
         return JSONResponse({"prediction": prediction.tolist()})
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
