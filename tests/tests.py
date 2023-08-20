@@ -4,8 +4,10 @@ import sys
 import os
 
 # Add the parent directory to sys.path
-parent_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-sys.path.append(parent_dir)
+
+#parent_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+#sys.path.append(parent_dir)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 
 from load.load_data import DataRetriever
 
