@@ -25,7 +25,7 @@ app = FastAPI()
 #sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
+model_path = "/Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
 
 loaded_model = joblib.load(model_path)
 
