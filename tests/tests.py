@@ -7,8 +7,8 @@ import pandas as pd
 
 from sklearn.pipeline import Pipeline
 
-from luigicode.load.load_data import DataRetriever
-from luigicode.preprocess.preprocess_data import MissingIndicator
+from .load.load_data import DataRetriever
+from .preprocess.preprocess_data import MissingIndicator
 
 def does_csv_file_exist(file_path):
     """
