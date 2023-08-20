@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
-from predict.predict import ModelPredictor
+from predict import ModelPredictor
 from models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
 import joblib
 
