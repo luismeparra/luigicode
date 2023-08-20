@@ -1,5 +1,14 @@
-import os
 import sys
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
+
+
+#import os
+#import sys
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
@@ -10,9 +19,10 @@ import joblib
 app = FastAPI()
 
 # Add the parent directory to sys.path
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
-sys.path.append(parent_dir)
+
+#current_dir = os.path.dirname(os.path.abspath(__file__))
+#parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+#sys.path.append(parent_dir)
 
 # Load the trained model
 model_path = "Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
