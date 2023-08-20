@@ -1,13 +1,25 @@
 #!/usr/bin/env python
 
-"""Tests for `luigicode` package."""
+import sys
+import os
+
+# Add the parent directory to sys.path
+parent_dir = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+sys.path.append(parent_dir)
+
+from load.load_data import DataRetriever
+
+
+
+
+#"""Tests for `luigicode` package."""
 import os
 import pytest
 import pandas as pd
 
 from sklearn.pipeline import Pipeline
 
-from load.load_data import DataRetriever
+#from load.load_data import DataRetriever
 from .preprocess.preprocess_data import MissingIndicator
 
 def does_csv_file_exist(file_path):
