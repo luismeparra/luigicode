@@ -5,7 +5,7 @@
 The present document is to enlist the final files that will be evaluated
 and also add the link of everyone. 
 
-## Deliverables
+### Deliverables Part 1
 
 
 # Deliverable 1
@@ -149,3 +149,37 @@ You can use tools like curl, Postman, or a Python script to interact with the AP
 To make predictions, send a POST request to http://127.0.0.1:8000/predict with the input data in JSON format.
 
 Remember to update paths, functions, and data loading to match your project's structure and requirements.
+
+
+
+### Deliverables Part 2
+
+# Deliverable 1
+Logging.
+
+All the modules were modified to add the logging with the purpose to get the lods. For example this : [Title](predict/predict.py)
+
+Extra: A folder called utilities was created in the root  with a file called custom_logging.py with a class called CustomLogger. The link is this: [Title](utilities/custom_logging.py)
+
+
+# Deliverable 2
+
+Docker 
+
+A file called Dockerfile was created in the root directory and these are the instructions to build the image, execute the container, debug the container, make predictions and copy the logs. 
+
+-Build an Image:
+
+You can build an image using the following command in the terminal , be sure you are in the project´s root directory. 
+
+docker build -t api-image .
+
+-Run the container: 
+
+To run the container from the built image you need to use the next command:
+
+docker run -d -p 8000:8000 --name api-container api-image
+
+This command will start the cointainer in dtached mode with the name api-container, to acces the API running inside the container, it is posible to make requests to http://localhost:8000
+
+-Debug a container
