@@ -3,6 +3,10 @@ from sklearn.utils.validation import check_array
 import pandas as pd
 import re
 import numpy as np
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class MissingIndicator(BaseEstimator, TransformerMixin):
     """
@@ -65,6 +69,7 @@ class MissingIndicator(BaseEstimator, TransformerMixin):
         Returns:
             self (MissingIndicator): The transformer instance.
         """
+        logger.info("Fitting MissingIndicator transformer")
         return self
 
     def transform(self, X):
@@ -77,6 +82,7 @@ class MissingIndicator(BaseEstimator, TransformerMixin):
         Returns:
             X_transformed (pd.DataFrame): Transformed DataFrame with additional indicator features for missing values.
         """
+        logger.info("Transforming data using MissingIndicator transformer")
         X = X.copy()
         for var in self.variables:
             X[f'{var}_nan'] = X[var].isnull().astype(int)
@@ -139,6 +145,7 @@ class ExtractLetters(BaseEstimator, TransformerMixin):
         Returns:
             self (ExtractLetters): The transformer instance.
         """
+        logger.info("Fitting ExtractLetters transformer")
         return self
 
     def transform(self, X):
@@ -151,6 +158,7 @@ class ExtractLetters(BaseEstimator, TransformerMixin):
         Returns:
             X_transformed (pd.DataFrame): Transformed DataFrame with letters extracted from the specified variable.
         """
+        logger.info("Transforming data using ExtractLetters transformer")
         X = X.copy()
         X[self.variable] = X[self.variable].apply(lambda x: ''.join(re.findall("[a-zA-Z]+", x)) if type(x)==str else x)
         return X
@@ -213,6 +221,12 @@ class CategoricalImputer(BaseEstimator, TransformerMixin):
         Returns:
             self (CategoricalImputer): The transformer instance.
         """
+        # Logging the fit method start
+        logging.info("Starting fit method...")
+
+        # Logging the variables to impute missing values for
+        logging.info(f"Variables to impute: {self.variables}")
+        
         return self
 
     def transform(self, X):
@@ -225,8 +239,14 @@ class CategoricalImputer(BaseEstimator, TransformerMixin):
         Returns:
             X_transformed (pd.DataFrame): Transformed DataFrame with missing values imputed for the specified categorical variables.
         """
+        # Logging the transform method start
+        logging.info("Starting transform method...")
+
         X = X.copy()
         for var in self.variables:
+            # Logging the variable being imputed
+            logging.info(f"Imputing values for variable: {var}")
+
             X[var] = X[var].fillna('Missing')
         return X
     
