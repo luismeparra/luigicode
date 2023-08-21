@@ -1,0 +1,7 @@
+fastapi
+httpx
+argparse
+joblib
+scikit-learn
+pandas
+pytest
