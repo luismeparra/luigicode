@@ -18,6 +18,8 @@ import joblib
 
 app = FastAPI()
 
+logger = CustomLogger("app.log")
+
 # Configure logging
 log_format = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
 logging.basicConfig(level=logging.INFO, format=log_format)
@@ -59,7 +61,7 @@ def predict(passenger_features: dict) -> JSONResponse:
         # Make prediction using the loaded model
         prediction = predictor.predict(input_df)
         # Log prediction result
-        logging.info(f"Prediction: {prediction}")
+        logger.log_info(f"Prediction: {prediction}")
 
         return JSONResponse({"prediction": prediction.tolist()})
     except Exception as e:
