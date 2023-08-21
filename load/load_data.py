@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import requests
+import logging
 
 class DataRetriever:
     def __init__(self, url, save_dir):
@@ -18,8 +19,12 @@ class DataRetriever:
             data = response.content
             with open(os.path.join(self.save_dir, 'retrieved_data.csv'), 'wb') as file:
                 file.write(data)
+            logging.info("Data retrieval successful.")
             return "Data retrieval successful."
         else:
+            logging.error("Data retrieval failed.")
             return "Data retrieval failed."
 
- 
+
+
+#            
