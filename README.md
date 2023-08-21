@@ -182,4 +182,24 @@ docker run -d -p 8000:8000 --name api-container api-image
 
 This command will start the cointainer in dtached mode with the name api-container, to acces the API running inside the container, it is posible to make requests to http://localhost:8000
 
--Debug a container
+-Debug a container:
+
+Use this command to acces a shell inside the running container.
+
+docker exec -it api-container bash
+
+With this command it will open a bash inside the container to run commandas and debug the API.
+
+-Predictions:
+
+It is possible too send requests to the api RUNNING container with this command example:
+
+curl -X POST -H "Content-Type: application/json" -d '{"gender": "female", "age": 30}' http://localhost:8000/predict
+
+-Copy Logs:
+
+With the following command it is possible copy the logs from the container to the logs directory on local machine.
+
+docker cp api-container:/app/app.log ./logs/
+
+ # Deliverable 3
