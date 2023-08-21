@@ -1,5 +1,6 @@
 import argparse
 import joblib
+import logging
 
 class ModelPredictor:
     """
@@ -24,6 +25,12 @@ class ModelPredictor:
             model_path (str): Path to the trained model file (joblib format).
         """
         self.model = joblib.load(model_path)
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        file_handler = logging.FileHandler('predictions.log')
+        file_handler.setFormatter(formatter)
+        self.logger.addHandler(file_handler)
 
     def predict(self, new_data):
         """
@@ -35,7 +42,9 @@ class ModelPredictor:
         Returns:
             Predicted outputs from the model.
         """
-        return self.model.predict(new_data)
+        predictions = self.model.predict(new_data)
+        self.logger.info(f"Predictions: {predictions}")
+        return predictions
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Model Predictor')
