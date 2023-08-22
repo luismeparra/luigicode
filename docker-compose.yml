@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend  # Specify the relative path to the frontend Dockerfile
+    ports:
+      - "80:80"  # Map port 80 of the host to port 80 of the frontend container
+
+  api:
+    build:
+      context: ./api  # Specify the relative path to the API Dockerfile
+    ports:
+      - "8000:8000"  # Map port 8000 of the host to port 8000 of the API container

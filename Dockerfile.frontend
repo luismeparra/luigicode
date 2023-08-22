@@ -1,0 +1,5 @@
+# Use a base Nginx image
+FROM nginx:latest
+
+# Copy the frontend files to the Nginx default directory
+COPY . /usr/share/nginx/html

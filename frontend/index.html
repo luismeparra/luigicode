@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+</head>
+<body>
+    <h1>Passenger Satisfaction Predictor</h1>
+    <form id="prediction-form">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required><br><br>
+        <!-- Add more input fields for other features -->
+
+        <button type="submit">Predict</button>
+    </form>
+    <div id="prediction-result"></div>
+
+    <script>
+        const form = document.getElementById('prediction-form');
+        const resultDiv = document.getElementById('prediction-result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const predictionData = {};
+            formData.forEach((value, key) => {
+                predictionData[key] = value;
+            });
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(predictionData)
+            });
+
+            const prediction = await response.json();
+            resultDiv.textContent = `Predicted satisfaction: ${prediction.prediction}`;
+        });
+    </script>
+</body>
+</html>
