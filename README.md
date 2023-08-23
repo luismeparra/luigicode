@@ -164,3 +164,4 @@ To check the endpoints we need to:
 1. Access `http://127.0.0.1:8000/`, you will see a message like this `"Titanic is all ready to go!"`
 2. Access `http://127.0.0.1:8000/docs`, the browser will display something like this:
 
+![API](Docs/image.png)
