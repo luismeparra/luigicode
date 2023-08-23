@@ -353,3 +353,53 @@ Run the following command:
     ```bash
     docker cp api-c:/main_api.log .
     ```
+#### Delete container and image
+
+* Stop the container:
+
+    ```bash
+    docker stop api-c
+    ```
+
+* Verify it was deleted
+
+    ```bash
+    docker ps -a
+    ```
+
+    Output:
+
+    ```bash
+    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+    ```
+
+* Delete the image
+
+    ```bash
+    docker rmi api-image
+    ```
+
+    Output:
+
+    ```bash
+    Deleted: sha256:bb48551cf5423bad83617ad54a8194501aebbc8f3ebb767de62862100d4e7fd2
+    ```
+### Complete deployment of all containers with Docker Compose and usage
+
+#### Create the network
+
+First, create the network AIService by running this command:
+
+```bash
+docker network create AIservice
+```
+
+#### Run Docker Compose
+
+* Ensure you are in the directory where the docker-compose.yml file is located
+
+* Run the next command to start the App and Frontend APIs
+
+    ```bash
+    docker-compose -f C:\Users\luis.mendez\luigicode\docker-compose.yml up --build
+    ```
