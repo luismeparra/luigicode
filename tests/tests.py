@@ -141,3 +141,27 @@ def test_missing_indicator_fit():
     # Check if the fit method returns the transformer instance itself
     assert transformer_instance == missing_indicator, \
         "The `fit` method should return the transformer instance itself."
+
+def test_model_existence():
+    """
+    Test to validate the existence of a .pkl model file.
+
+    This test function checks whether the specified .pkl model file exists
+    in the specified directory.
+
+    Raises:
+        AssertionError: If the model file doesn't exist.
+
+    Usage:
+        Run this test using the pytest command:
+        pytest test_model_existence.py
+    """
+    model_filename = "random_forest_output.pkl"
+    MODEL_DIRECTORY = "luigicode/models"
+    model_path = os.path.join(MODEL_DIRECTORY, model_filename)
+    print(model_path)
+    assert os.path.exists(model_path), f"Model file '{model_filename}' does not exist."
+
+if __name__ == "__main__":
+    # Run the test function using Pytest
+    pytest.main([__file__])
