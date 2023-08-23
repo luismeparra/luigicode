@@ -158,8 +158,8 @@ def test_model_existence():
     """
     #model_filename = "random_forest_output.pkl"
     #MODEL_DIRECTORY = "/Users/luis.mendez/luigicode/models"
-    #model_path = "/Users/luis.mendez/luigicode/app/ml_models/random_forest_model_output.pkl"
-    model_path = 'https://github.com/luismeparra/luigicode/raw/main/models/random_forest_model_output.pkl'
+    model_path = "/Users/luis.mendez/luigicode/app/ml_models/random_forest_model_output.pkl"
+    #model_path = 'https://github.com/luismeparra/luigicode/raw/main/models/random_forest_model_output.pkl'
     print(model_path)
     assert os.path.exists(model_path), f"Model file '{model_filename}' does not exist."
 
