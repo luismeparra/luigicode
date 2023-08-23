@@ -3,7 +3,7 @@ import os
 
 # Add the parent directory to sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
 import logging
@@ -16,8 +16,7 @@ from starlette.responses import JSONResponse
 from predict.predict import ModelPredictor
 from utilities.custom_logging import CustomLogger
 
-from .models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
-# esto se movío arriba
+#from .models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
 
 
 import joblib
@@ -41,7 +40,7 @@ logging.basicConfig(level=logging.INFO, format=log_format)
 #sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "luigicode/models/random_forest_model_output.pkl"
+model_path = "/Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
 
 loaded_model = joblib.load(model_path)
 
@@ -52,9 +51,9 @@ predictor = ModelPredictor(model_path)
 async def healthcheck():
     return 'Passenger satisfaction predictor is ready to go!'
 #1
-#I understand the instead dict I need to put the class PassengerSatisfaction created and located in models folder
+#I understand that instead of dict I need to put the class PassengerSatisfaction created and located in models folder
 @app.post('/predict')
-def predict(passenger_features: PassengerSatisfaction) -> JSONResponse: #esto se movio se quito dict
+def predict(passenger_features: dict) -> JSONResponse: #esto se movio se quito dict
     try:
         # Convert input data to DataFrame and preprocess
         input_data = {
