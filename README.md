@@ -54,7 +54,7 @@ Note: Change the directoy to the root folerd.
 
 We need to create a virtual environment with Python 3.10.
 
-    ```bash
+    ```
     python -m venv venv
     ```
 
@@ -62,7 +62,7 @@ After that we need to activate with the following command:
 
     ```bash
    venv\Scripts\activate
-   ```
+    ```   
 
 After we need to install libraries we neeed to run the following command to install the libraries/packages.
 
