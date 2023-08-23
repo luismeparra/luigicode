@@ -51,7 +51,7 @@ predictor = ModelPredictor(model_path)
 async def healthcheck():
     return 'Passenger satisfaction predictor is ready to go!'
 #1
-#I understand that instead of dict I need to put the class PassengerSatisfaction created and located in models folder
+#I understand that instead of dict I need to put the class PassengerSatisfaction created and located in models folder but if i do that it does not work
 @app.post('/predict')
 def predict(passenger_features: dict) -> JSONResponse: #esto se movio se quito dict
     try:
