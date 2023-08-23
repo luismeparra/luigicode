@@ -39,7 +39,8 @@ logging.basicConfig(level=logging.INFO, format=log_format)
 #sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "/Users/luis.mendez/luigicode/app/ml_models/random_forest_model_output.pkl"
+#model_path = "/Users/luis.mendez/luigicode/app/ml_models/random_forest_model_output.pkl"
+model_path ="app\random_forest_model_output.pkl"
 #model_path = "/Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
 
 #model_path = "ml_models/random_forest_model_output.pkl"
