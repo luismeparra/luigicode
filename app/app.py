@@ -51,7 +51,7 @@ predictor = ModelPredictor(model_path)
 
 @app.get('/', status_code=200)
 async def healthcheck():
-    logger.info("Passenger satisfaction predictor is ready to go!")
+    #logger.info("Passenger satisfaction predictor is ready to go!")
     return 'Passenger satisfaction predictor is ready to go!'
 #1
 @app.post('/predict')
@@ -69,7 +69,7 @@ def predict(passenger_features: dict) -> JSONResponse:
         # Make prediction using the loaded model
         prediction = predictor.predict(input_df)
         # Log prediction result
-        logger.log_info(f"Prediction: {prediction}")
+        #logger.log_info(f"Prediction: {prediction}")
 
         return JSONResponse({"prediction": prediction.tolist()})
     except Exception as e:
