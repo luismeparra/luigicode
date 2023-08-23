@@ -42,7 +42,7 @@ Note:This project is planned to cover the topics seen in the course syllabus, wh
 
 You can try to explore this notebooks to find different analytics solutions.
 
-* 1. 
-* 2. 
+* 1. [Title](Docs/data-visualization-and-ml-for-psg-satisfaction.ipynb)
+* 2. [Title](Docs/airline-passenger-satisfaction-eda-ml.ipynb)
 * 3. 
 
