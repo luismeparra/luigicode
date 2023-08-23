@@ -2,16 +2,20 @@ version: "3.7"
 
 services:
   app:
-    build: app
+    build: 
+      context: ./app  #
     ports:
       - 8000:8000
     networks:
       AIservice:
         aliases:
           - app.docker
+    volumes:
+      - ./app:/app
 
   frontend:
-    build: frontend
+    build: 
+     context: ./frontend
     ports:
       - 3000:3000
     networks:

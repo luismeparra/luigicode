@@ -1,8 +1,8 @@
 # Use a base Python image
 FROM python:3.11-slim
 # Set the working directory inside the container
-#WORKDIR /app
-WORKDIR C:/Users/luis.mendez/luigicode/app
+WORKDIR /app
+#WORKDIR C:/Users/luis.mendez/luigicode/app
 # Copy the files to the working directory
 COPY . .
 
