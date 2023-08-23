@@ -394,12 +394,20 @@ First, create the network AIService by running this command:
 docker network create AIservice
 ```
 
-#### Run Docker Compose
+#### Run Docker 
 
-* Ensure you are in the directory where the docker-compose.yml file is located
+*  Ensure you are in the directory where the docker-compose.yml file is located. In this case is the root folder.
 
-* Run the next command to start the App and Frontend APIs
+* Now run the next command to start the App and Frontend APIs
 
     ```bash
     docker-compose -f C:\Users\luis.mendez\luigicode\docker-compose.yml up --build
+    ```
+
+    You will see something like this:
+
+    ```bash
+    [+] Running 2/2
+    ✔ Container luigicode-app-1 Created                                                                                         0.1s
+     ✔ Container luigicode-frontend-1  Created
     ```
