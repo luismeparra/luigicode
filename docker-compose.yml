@@ -1,13 +1,26 @@
-version: '3'
-services:
-  frontend:
-    build:
-      context: ./frontend  # Specify the relative path to the frontend Dockerfile
-    ports:
-      - "80:80"  # Map port 80 of the host to port 80 of the frontend container
+version: "3.7"
 
-  api:
-    build:
-      context: ./api  # Specify the relative path to the API Dockerfile
+services:
+  app:
+    build: app
     ports:
-      - "8000:8000"  # Map port 8000 of the host to port 8000 of the API container
+      - 8000:8000
+    networks:
+      AIservice:
+        aliases:
+          - app.docker
+
+  frontend:
+    build: frontend
+    ports:
+      - 3000:3000
+    networks:
+      AIservice:
+        aliases:
+          - frontend.docker
+    depends_on:
+      - app
+
+networks:
+  AIservice:
+    external: true
