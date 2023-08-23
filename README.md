@@ -165,3 +165,191 @@ To check the endpoints we need to:
 2. Access `http://127.0.0.1:8000/docs`, the browser will display something like this:
 
 ![API](Docs/image.png)
+
+3. Try running the next predictions with the endpoint wirting the following values:
+
+    * **Prediction 1**  
+        Request body
+
+        ```bash
+        {
+        "Gender": 1,
+        "Age": 1,
+        "xx": 0
+        }
+        ```
+
+        Response body
+        The output will be:
+
+        ```bash
+        "Resultado predicción: [0]"
+        ```
+
+Note: This is only an example the features depend from the predictors choosen when you train your model.
+
+### Individual deployment of the API with Docker and usage
+
+#### Build the image
+
+* Ensure you are in the `luigicode/` directory (root folder) and check that Docker is running
+* Run the following code to build the image:
+
+
+    ```bash
+    docker build -t api-image -f C:\Users\luis.mendez\luigicode\app\Dockerfile C:\Users\luis.mendez\luigicode\app
+    ```
+
+Note: Change the path where you have located the Dockerfile
+
+The output will be this:
+
+```bash
+    C:\Users\luis.mendez\luigicode>docker build -t api-image -f C:\Users\luis.mendez\luigicode\app\Dockerfile C:\Users\luis.mendez\luigicode\app
+[+] Building 44.5s (12/12) FINISHED                                                                                                     docker:default
+ => [internal] load build definition from Dockerfile                                                                                              0.0s
+ => => transferring dockerfile: 642B                                                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim                                                                               5.5s
+ => [1/7] FROM docker.io/library/python:3.11-slim@sha256:17d62d681d9ecef20aae6c6605e9cf83b0ba3dc247013e2f43e1b5a045ad4901                         8.4s
+ => => resolve docker.io/library/python:3.11-slim@sha256:17d62d681d9ecef20aae6c6605e9cf83b0ba3dc247013e2f43e1b5a045ad4901                         0.0s
+ => => sha256:17d62d681d9ecef20aae6c6605e9cf83b0ba3dc247013e2f43e1b5a045ad4901 1.65kB / 1.65kB                                                    0.0s
+ => => sha256:0275089b5b654bb33931fc239a447db9fdd1628bc9d1482788754785d6d9e464 1.37kB / 1.37kB                                                    0.0s
+ => => sha256:596e0d6b34dfaa7ed330941075bcd38b376b3eba8e5b63a1da38bf04fe08bdd3 6.92kB / 6.92kB                                                    0.0s
+ => => sha256:52d2b7f179e32b4cbd579ee3c4958027988f9a8274850ab0c7c24661e3adaac5 29.12MB / 29.12MB                                                  5.5s
+ => => sha256:2b8a9a2240c1224b34f6aafbc3310f9a3fe65bd6893050906d02e89fc8326aa9 3.50MB / 3.50MB                                                    1.4s
+ => => sha256:051d6521462a7eb4ca0374e97701d6eec68eb51b118d3ef5d002798b498fb12e 17.86MB / 17.86MB                                                  3.5s
+ => => sha256:fce84b1f897c621e9474bd4d5a49e2e22fa35e248e78e754010d34ec3d2d28cd 245B / 245B                                                        1.6s
+ => => sha256:46233543d8c2dc599bdb9d522180ca9e14cad4ac2017a5dc481660bfa4aa3ed9 3.38MB / 3.38MB                                                    2.6s
+ => => extracting sha256:52d2b7f179e32b4cbd579ee3c4958027988f9a8274850ab0c7c24661e3adaac5                                                         1.3s
+ => => extracting sha256:2b8a9a2240c1224b34f6aafbc3310f9a3fe65bd6893050906d02e89fc8326aa9                                                         0.1s
+ => => extracting sha256:051d6521462a7eb4ca0374e97701d6eec68eb51b118d3ef5d002798b498fb12e                                                         1.0s
+ => => extracting sha256:fce84b1f897c621e9474bd4d5a49e2e22fa35e248e78e754010d34ec3d2d28cd                                                         0.0s
+ => => extracting sha256:46233543d8c2dc599bdb9d522180ca9e14cad4ac2017a5dc481660bfa4aa3ed9                                                         0.3s
+ => [internal] load build context                                                                                                                 0.7s
+ => => transferring context: 88.65MB                                                                                                              0.7s
+ => [2/7] WORKDIR /app                                                                                                                            0.2s
+ => [3/7] COPY . .                                                                                                                                0.1s
+ => [4/7] RUN pip3 install --no-cache-dir -r requirements.txt                                                                                    19.6s
+ => [5/7] COPY . .                                                                                                                                0.1s
+ => [6/7] RUN pip3 install --no-cache-dir -r requirements.txt                                                                                     1.5s
+ => [7/7] RUN apt-get update && apt-get install -y vim                                                                                            7.5s
+ => exporting to image                                                                                                                            1.5s
+ => => exporting layers                                                                                                                           1.5s
+ => => writing image sha256:300f530e3aea21ec1186240dc74cb74ab77f923c42fffca7a3abb6e8dc400b54                                                      0.0s
+ => => naming to docker.io/library/api-image                                                                                                      0.0s
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+```
+
+* Inspect the image created by running this command:
+
+    ```bash
+    docker images
+    ```
+
+    Output:
+
+    ```bash
+    REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+    api-image    latest    300f530e3aea   3 minutes ago   672MB
+    ```
+
+#### Run  REST API
+
+1. Run the next command to start the `api-image` image in a container.
+
+    ```bash
+    docker run -d --rm --name api-c -p 8000:8000 api-image
+    ```
+This will be the output:
+
+    ```bash
+    C:\Users\luis.mendez\luigicode>docker run -d --rm --name api-c -p 8000:8000 api-image
+    224a672913bbefa4679dec60495b4337bc451b847c40883754228a042df28630
+    ```
+
+2. Check the container running.
+
+Run the following command:
+
+    ```bash
+    docker ps -a
+    ```
+
+    This will be the Output:
+
+    ```bash
+    C:\Users\luis.mendez\luigicode>docker ps -a
+    CONTAINER ID   IMAGE       COMMAND                  CREATED              STATUS              PORTS                    NAMES
+    224a672913bb   api-image   "uvicorn app:app --h…"   About a minute ago   Up About a minute   0.0.0.0:8000->8000/tcp   api-c
+
+    ```
+
+
+#### Checking endpoints for app
+
+1. Access `http://127.0.0.1:8000/`, and you will see a message like this `Passenger satisfaction predictor is ready to go!`
+2. A file called `main_api.log` will be created automatically inside the container. We will inspect it below.
+3. Access `http://127.0.0.1:8000/docs`, the browser will display something like this:
+    ![FastAPI Docs](![docs/imgs/fast-api-docs.png](Docs/image.png))
+
+4. Try running the following predictions with the endpoint by writing the following values:
+    * * **Prediction 1**  
+        Request body
+
+        ```bash
+        {
+        "Gender": 1,
+        "Age": 1,
+        "xx": 0
+        }
+        ```
+
+        Response body
+        The output will be:
+
+        ```bash
+        "Resultado predicción: [0]"
+        ```
+
+#### Opening the logs
+
+1. Run the command
+
+    ```bash
+    docker exec -it api-c bash
+    ```
+
+    Output:
+
+    ```bash
+    root@224a672913bb:/app# 
+    ```
+
+2. Check the existing files:
+
+    ```bash
+    ls
+    ```
+
+    Output:
+
+    ```bash
+    Dockerfile  README_DOCKERFILE.md  __pycache__  app.py  ml_models  models  predictor  requirements.txt
+    root@224a672913bb:/app#
+    ```
+3. Open the file `main_api.log` and inspect the logs with this command:
+
+    ```bash
+    vim main_api.log
+    ```
+
+
+4. Copy the logs to the root folder:
+
+    ```bash
+    docker cp api-c:/main_api.log .
+    ```
