@@ -21,4 +21,7 @@ EXPOSE 8000
 
 
 # Run the API when the container is started
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000" , "--reload"]
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000" , "--reload"]
+
+
+#uvicorn api.app:app --reload
