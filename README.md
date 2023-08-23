@@ -60,22 +60,23 @@ We need to create a virtual environment with Python 3.10.
 
 After that we need to activate with the following command:
 
-    ```bash
+    ```
    venv\Scripts\activate
     ```   
 
 After we need to install libraries we neeed to run the following command to install the libraries/packages.
 
-    ```bash
+    ```
     pip install -r requirements.txt  
     ```
+
 [Title](requirements.txt)
 
 ## Model training from a main file
 
 To train the Random Forest Model, only run the following code:
 
-```bash
+```
 python luigicode/main.py
 ```
 
