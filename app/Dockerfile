@@ -5,6 +5,10 @@ WORKDIR /app
 #WORKDIR C:/Users/luis.mendez/luigicode/app
 # Copy the files to the working directory
 COPY . .
+COPY app.py .
+COPY requirements.txt .
+COPY ml_models/random_forest_model_output.pkl ml_models/
+
 
 # Install the project dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt
