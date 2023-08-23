@@ -48,6 +48,9 @@ You can try to explore this notebooks to find different analytics solutions.
 
 ## Setup
 
+Firstable is importante to change the name luis.mendez defined in the path :
+"C:\Users\luis.mendez\luigicode\..." to the user name of your local computer in the tests.py file and app.py file.
+
 ### Python version and packages to install
 
 Note: Change the directoy to the root folerd.
@@ -70,7 +73,7 @@ After we need to install libraries we neeed to run the following command to inst
     pip install -r requirements.txt  
     ```
 
-[Title](requirements.txt)
+[requirements](requirements.txt)
 
 ## Model training from a main file
 
@@ -85,4 +88,79 @@ The link of the file is this: [main.py](main.py)
 The model was saved in  ./models/random_forest_output.pkl
 
 ## Execution of unit tests
+
+You can find a folder called tests in the root directory where the following tests have been defined:
+[Tests folder](tests)
+
+* Test `test_missing_indicator_transform`:  
+Test the `transform` method of the MissingIndicator transformer.
+
+* Test `test_missing_indicator_fit`:  
+Test the `fit` method of the MissingIndicator transformer.
+
+* Test `test_csv_file_existence`:  
+Test case to check if the CSV file exists.
+
+* Test `test_model_existence`:  
+Test to validate the existence of a `.pkl` model file.
+
+
+### Execution instructions
+
+Test to try Data Retriever Class defined in the load folder in load_data.py
+
+The following test validates the [load_data.py](itesm_mlops_project/load/load_data.py) module, with the `DataRetriever` class.
+
+Follow the next steps to run the test.
+
+* Run in the terminal:
+
+    ```bash
+    pytest ./tests/tests.py::test_csv_file_existence -v
+    ```
+
+* You should see the following data output:
+
+
+    ```pytest
+    ================================================= test session starts =================================================
+platform win32 -- Python 3.10.9, pytest-7.4.0, pluggy-1.2.0 -- C:\Users\luis.mendez\luigicode\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\luis.mendez\luigicode
+plugins: anyio-3.7.1
+collected 1 item
+
+tests/tests.py::test_csv_file_existence PASSED                                                                   [100%]
+
+================================================= 1 passed in 10.38s ==================================================
+    ```
+
+
+And Also you can try all the test with the same procedure only you need to change the name of the test you want to try in the command:
+
+
+    ```
+    pytest ./tests/tests.py::name_of_tests -v
+    ```
+
+The tests are: test_missing_indicator_transform , test_missing_indicator_fit, test_model_existence
+
+## Usage 
+
+### Individual Fastapi and Use Deployment
+
+To display the API we need to run the next command:
+
+uvicorn api.app:app --reload
+
+
+    ```
+    uvicorn api.app:app --reload
+    ```
+#### Checking endpoints
+
+To check the endpoints we need to:
+
+1. Access `http://127.0.0.1:8000/`, you will see a message like this `"Titanic is all ready to go!"`
+2. Access `http://127.0.0.1:8000/docs`, the browser will display something like this:
 
