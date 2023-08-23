@@ -44,7 +44,44 @@ You can try to explore this notebooks to find different analytics solutions.
 
 * 1. [Title](Docs/data-visualization-and-ml-for-psg-satisfaction.ipynb)
 * 2. [Title](Docs/airline-passenger-satisfaction-eda-ml.ipynb)
-* 3. 
+* 3. [Title](Docs/passengerssatisfaction-outlierdetection-97-recall.ipynb)
 
+## Setup
 
+### Python version and packages to install
+
+Note: Change the directoy to the root folerd.
+
+We need to create a virtual environment with Python 3.10.
+
+    ```bash
+    python -m venv venv
+    ```
+
+After that we need to activate with the following command:
+
+    ```bash
+   venv\Scripts\activate
+   ```
+
+After we need to install libraries we neeed to run the following command to install the libraries/packages.
+
+    ```bash
+    pip install -r requirements.txt  
+    ```
+[Title](requirements.txt)
+
+## Model training from a main file
+
+To train the Random Forest Model, only run the following code:
+
+```bash
+python luigicode/main.py
+```
+
+The link of the file is this: [Title](main.py) 
+
+The model was saved in  ./models/random_forest_output.pkl
+
+## Execution of unit tests
 
