@@ -37,7 +37,9 @@ logging.basicConfig(level=logging.INFO, format=log_format)
 #sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "ml_models/random_forest_model_output.pkl"
+model_path = "/Users/luis.mendez/luigicode/app/ml_models/random_forest_model_output.pkl"
+
+#model_path = "ml_models/random_forest_model_output.pkl"
 
 loaded_model = joblib.load(model_path)
 
@@ -50,9 +52,9 @@ async def healthcheck():
     return 'Passenger satisfaction predictor is ready to go!'
 #1
 @app.post('/predict')
-def predict(passenger_features: dict) -> JSONResponse:
+def predict(passenger_features: dict) -> JSONResponse:   
     try:
-        # Convert input data to DataFrame and preprocess
+        # Convert input data to DataFrame and preprocess   #I understand that instead of dict I need to put the class PassengerSatisfaction created and located in models folder but if i do that it does not work
         input_data = {
             "Gender": [passenger_features.gender],
             "Age": [passenger_features.age],
