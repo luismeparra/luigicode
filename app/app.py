@@ -37,7 +37,7 @@ logging.basicConfig(level=logging.INFO, format=log_format)
 #sys.path.append(parent_dir)
 
 # Load the trained model
-model_path = "/Users/luis.mendez/luigicode/models/random_forest_model_output.pkl"
+model_path = "ml_models/random_forest_model_output.pkl"
 
 loaded_model = joblib.load(model_path)
 
@@ -46,9 +46,9 @@ predictor = ModelPredictor(model_path)
 
 @app.get('/', status_code=200)
 async def healthcheck():
+    logger.info("Passenger satisfaction predictor is ready to go!")
     return 'Passenger satisfaction predictor is ready to go!'
 #1
-#I understand the instead dict I need to put the class PassengerSatisfaction created and located in models folder
 @app.post('/predict')
 def predict(passenger_features: dict) -> JSONResponse:
     try:
