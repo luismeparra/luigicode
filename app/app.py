@@ -13,14 +13,14 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
 from predict.predict import ModelPredictor
-from .utilities.custom_logging import CustomLogger
+#from .utilities.custom_logging import CustomLogger
 
 #from .models.models import PassengerSatisfaction  # Update with your PassengerSatisfaction model
 import joblib
 
 app = FastAPI()
 
-logger = CustomLogger("app.log")
+#logger = CustomLogger("app.log")
 
 # Configure logging
 log_format = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
