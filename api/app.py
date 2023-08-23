@@ -67,7 +67,7 @@ def predict(passenger_features: dict) -> JSONResponse: #esto se movio se quito d
         # Make prediction using the loaded model
         prediction = predictor.predict(input_df)
         # Log prediction result
-        logger.log_info(f"Prediction: {prediction}")
+        #logger.log_info(f"Prediction: {prediction}")
 
         return JSONResponse({"prediction": prediction.tolist()})
     except Exception as e:
