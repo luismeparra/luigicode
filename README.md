@@ -42,9 +42,9 @@ Note:This project is planned to cover the topics seen in the course syllabus, wh
 
 You can try to explore this notebooks to find different analytics solutions.
 
-* 1. [Title](Docs/data-visualization-and-ml-for-psg-satisfaction.ipynb)
-* 2. [Title](Docs/airline-passenger-satisfaction-eda-ml.ipynb)
-* 3. [Title](Docs/passengerssatisfaction-outlierdetection-97-recall.ipynb)
+* 1. [data-visualization-and-ml-for-psg-satisfaction](Docs/data-visualization-and-ml-for-psg-satisfaction.ipynb)
+* 2. [airline-passenger-satisfaction-eda-ml](Docs/airline-passenger-satisfaction-eda-ml.ipynb)
+* 3. [passengerssatisfaction-outlierdetection-97-recall](Docs/passengerssatisfaction-outlierdetection-97-recall.ipynb)
 
 ## Setup
 
@@ -61,8 +61,8 @@ We need to create a virtual environment with Python 3.10.
 After that we need to activate with the following command:
 
     ```
-   venv\Scripts\activate
-    ```   
+    venv\Scripts\activate
+    ```
 
 After we need to install libraries we neeed to run the following command to install the libraries/packages.
 
@@ -80,7 +80,7 @@ To train the Random Forest Model, only run the following code:
 python luigicode/main.py
 ```
 
-The link of the file is this: [Title](main.py) 
+The link of the file is this: [main.py](main.py) 
 
 The model was saved in  ./models/random_forest_output.pkl
 
