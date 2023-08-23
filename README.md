@@ -46,3 +46,5 @@ You can try to explore this notebooks to find different analytics solutions.
 * 2. [Title](Docs/airline-passenger-satisfaction-eda-ml.ipynb)
 * 3. 
 
+
+
