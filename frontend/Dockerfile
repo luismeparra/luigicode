@@ -10,4 +10,4 @@ RUN which uvicorn
 #RUN apt-get update && apt-get install -y vim
 
 EXPOSE 3000
-CMD ["poetry", "run","uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "3000" , "--reload"]
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "3000" , "--reload"]
