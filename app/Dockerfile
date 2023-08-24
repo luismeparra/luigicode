@@ -11,7 +11,7 @@ COPY . .
 
 
 # Install the project dependencies
-RUN pip install uvicorn
+RUN pip install fastapi uvicorn
 RUN pip3 install --no-cache-dir -r requirements.txt 
 #RUN apt-get update && apt-get install -y vim 
 
@@ -21,7 +21,7 @@ EXPOSE 8000
 
 
 # Run the API when the container is started
-CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000" , "--reload"]
+CMD ["poetry", "run","uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000" , "--reload"]
 
 
 #uvicorn api.app:app --reload
