@@ -9,7 +9,7 @@ COPY . .
 #COPY requirements.txt .
 #COPY ml_models/random_forest_model_output.pkl 
 
-
+#hola
 # Install the project dependencies
 RUN pip install fastapi uvicorn 
 RUN pip3 install --no-cache-dir -r requirements.txt 
