@@ -13,6 +13,7 @@ COPY . .
 # Install the project dependencies
 RUN pip install fastapi uvicorn
 RUN pip3 install --no-cache-dir -r requirements.txt 
+RUN which uvicorn
 #RUN apt-get update && apt-get install -y vim 
 
 # Expose the port of your API
