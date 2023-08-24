@@ -12,6 +12,8 @@ COPY . .
 
 # Install the project dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt 
+RUN pip install uvicorn
+RUN which uvicorn
 #RUN apt-get update && apt-get install -y vim 
 
 # Expose the port of your API
@@ -21,6 +23,6 @@ EXPOSE 8000
 
 # Run the API when the container is started
 CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000" , "--reload"]
-
+#CMD ["/bin/bash"]
 
 #uvicorn api.app:app --reload
