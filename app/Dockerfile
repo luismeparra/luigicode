@@ -7,17 +7,12 @@ WORKDIR /app
 COPY . .
 COPY app.py .
 COPY requirements.txt .
-COPY ml_models/random_forest_model_output.pkl ml_models/
+COPY ml_models/random_forest_model_output.pkl 
 
 
 # Install the project dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
-
-# Copy the project files to the working directory
-COPY . .
-
 RUN pip3 install --no-cache-dir -r requirements.txt 
-RUN apt-get update && apt-get install -y vim 
+#RUN apt-get update && apt-get install -y vim 
 
 # Expose the port of your API
 

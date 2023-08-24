@@ -411,3 +411,113 @@ docker network create AIservice
     ✔ Container luigicode-app-1 Created                                                                                         0.1s
      ✔ Container luigicode-frontend-1  Created
     ```
+
+
+#### Checking endpoints in Frontend
+
+1. Access `http://127.0.0.1:3000/`, and you will see a message like this `"Front-end is all ready to go!"`
+2. A file called `frontend.log` will be created automatically inside the container. We will inspect it below.
+3. Access `http://127.0.0.1:3000/docs`, the browser will display something like this:
+    ![Image](Docs/image.png)
+
+4. Try running the following predictions with the endpoint `classify` by writing the following values:
+    * **Prediction 1**  
+        Request body
+
+        ```bash
+        {
+        "Gender": 1,
+        "Age": 1,
+        "xx": 0
+        }
+        ```
+
+        Response body
+        The output will be:
+
+        ```bash
+        "Resultado predicción: [0]"
+        ```
+
+### Opening the logs in Frontend
+
+Open a new terminal, and execute the following commands:
+
+1. Copy the `frontend` logs to the root folder:
+
+    ```bash
+    docker cp luigicode-frontend-1:/frontend.log .
+    ```
+
+    Output:
+
+    ```bash
+    Successfully copied 3.12kB to .../luigicode/.
+    ```
+
+2. You can inspect the logs 
+
+#### Opening the logs in App
+
+Open a new terminal, and execute the following commands:
+
+1. Copy the `app` logs to the root folder:
+
+    ```bash
+    docker cp luigicode-app-1:/main_api.log .
+    ```
+
+    Output:
+
+    ```bash
+    Successfully copied 2.56kB to .../luigicode/.
+    ```
+
+2. You can inspect the logs 
+
+### Delete the containers with Docker Compose
+
+1. Stop the containers that have previously been launched with `docker-compose up`.
+
+    ```bash
+    docker-compose -f luigicode/docker-compose.yml stop 
+    ```
+
+    Output:
+
+    ```bash
+    [+] Stopping 2/2
+    ✔ Container luigicode-frontend-1  Stopped                           0.3s 
+    ✔ Container luigicode-app-1       Stopped                           0.4s 
+    ```
+
+2. Delete the containers stopped from the stage.
+
+    ```bash
+    docker-compose -f luigicode/docker-compose.yml rm
+    ```
+
+    Output:
+
+    ```bash
+    ? Going to remove luigicode-frontend-1, luigicode-app-1 Yes
+    [+] Removing 2/0
+    ✔ Container luigicode-app-1       Removed                           0.0s 
+    ✔ Container luigicode-frontend-1  Removed                           0.0s 
+    ```
+
+## Resources
+
+Here you will find information about this project and more.
+
+## Information sources:
+
+https://github.com/luismeparra/luigicode.git
+
+### Contact Information
+
+*  **Credits**
+
+a01688471@tec.mx Luis Méndez 
+
+* **Contributors**
