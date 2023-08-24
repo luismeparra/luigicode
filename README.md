@@ -412,6 +412,9 @@ docker network create AIservice
      ✔ Container luigicode-frontend-1  Created
     ```
 
+Also you can check in Dockerdesktop and you need to see something like this:
+
+![Click to see Image --->](<Docs/running docker compose.PNG>)
 
 #### Checking endpoints in Frontend
 
