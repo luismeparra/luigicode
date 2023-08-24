@@ -4,10 +4,10 @@ FROM python:3.11-slim
 WORKDIR /app
 #WORKDIR C:/Users/luis.mendez/luigicode/app
 # Copy the files to the working directory
-COPY . .
-COPY app.py .
-COPY requirements.txt .
-COPY ml_models/random_forest_model_output.pkl 
+COPY . /app
+#COPY app.py .
+#COPY requirements.txt .
+#COPY ml_models/random_forest_model_output.pkl 
 
 
 # Install the project dependencies
