@@ -11,7 +11,7 @@ COPY . .
 
 
 # Install the project dependencies
-RUN pip install fastapi uvicorn which
+RUN pip install fastapi uvicorn 
 RUN pip3 install --no-cache-dir -r requirements.txt 
 RUN pip install uvicorn
 RUN which uvicorn
